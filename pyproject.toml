@@ -14,9 +14,9 @@ maintainers = [
     {name = "coletdjnz", email = "coletdjnz@protonmail.com"},
     {name = "sepro", email = "sepro@sepr0.com"},
 ]
-description = "A feature-rich command-line audio/video downloader"
+description = "A feature-rich command-line audio/video downloader (PowerPC compatibility fork)"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.5"
 keywords = [
     "cli",
     "downloader",
@@ -24,6 +24,10 @@ keywords = [
     "youtube-downloader",
     "sponsorblock",
     "yt-dlp",
+    "powerpc",
+    "ppc",
+    "tiger",
+    "leopard",
 ]
 license = "Unlicense"
 license-files = ["LICENSE"]
@@ -33,6 +37,11 @@ classifiers = [
     "Environment :: Console",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.5",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
@@ -90,9 +99,9 @@ pyinstaller = [
 ]
 
 [project.urls]
-Documentation = "https://github.com/yt-dlp/yt-dlp#readme"
-Repository = "https://github.com/yt-dlp/yt-dlp"
-Tracker = "https://github.com/yt-dlp/yt-dlp/issues"
+Documentation = "https://github.com/fuzzywalrus/yt-dlp#readme"
+Repository = "https://github.com/fuzzywalrus/yt-dlp"
+Tracker = "https://github.com/fuzzywalrus/yt-dlp/issues"
 Funding = "https://github.com/yt-dlp/yt-dlp/blob/master/Maintainers.md#maintainers"
 
 [project.scripts]

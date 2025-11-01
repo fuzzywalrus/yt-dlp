@@ -1,8 +1,16 @@
 import sys
 
-if sys.version_info < (3, 10):
+if sys.version_info < (3, 5):
     raise ImportError(
-        f'You are using an unsupported version of Python. Only Python versions 3.10 and above are supported by yt-dlp')  # noqa: F541
+        f'You are using an unsupported version of Python. Only Python versions 3.5 and above are supported by this PowerPC-compatible fork of yt-dlp')  # noqa: F541
+
+# PowerPC TLS compatibility
+if sys.platform == 'darwin' and (sys.version_info < (3, 8) or 'powerpc' in sys.version.lower()):
+    try:
+        from . import ppc_ssl
+        ppc_ssl.patch_urllib()
+    except ImportError:
+        pass
 
 __license__ = 'The Unlicense'
 

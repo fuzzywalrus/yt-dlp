@@ -4,12 +4,12 @@ __version__ = '2025.10.22'
 
 RELEASE_GIT_HEAD = 'c9356f308dd3c5f9f494cb40ed14c5df017b4fe0'
 
-VARIANT = None
+VARIANT = 'ppc'
 
 UPDATE_HINT = None
 
 CHANNEL = 'stable'
 
-ORIGIN = 'yt-dlp/yt-dlp'
+ORIGIN = 'fuzzywalrus/yt-dlp'
 
 _pkg_version = '2025.10.22'

@@ -10,6 +10,8 @@ import urllib.request
 if typing.TYPE_CHECKING:
     T = typing.TypeVar('T')
 
+# Python 3.5 compatibility - Self wasn't added until 3.11
+
 from ._utils import NO_DEFAULT, remove_start, format_field
 from .traversal import traverse_obj
 
@@ -28,7 +30,7 @@ class HTTPHeaderDict(dict):
 
     Retains a case sensitive mapping of the headers, which can be accessed via `.sensitive()`.
     """
-    def __new__(cls, *args: typing.Any, **kwargs: typing.Any) -> typing.Self:
+    def __new__(cls, *args: typing.Any, **kwargs: typing.Any) -> 'HTTPHeaderDict':
         obj = dict.__new__(cls, *args, **kwargs)
         obj.__sensitive_map = {}
         return obj
@@ -67,14 +69,14 @@ class HTTPHeaderDict(dict):
             return
         return NotImplemented
 
-    def __or__(self, other, /) -> typing.Self:
+    def __or__(self, other, /) -> 'HTTPHeaderDict':
         if isinstance(other, type(self)):
             other = other.sensitive()
         if isinstance(other, dict):
             return type(self)(self.sensitive(), other)
         return NotImplemented
 
-    def __ror__(self, other, /) -> typing.Self:
+    def __ror__(self, other, /) -> 'HTTPHeaderDict':
         if isinstance(other, type(self)):
             other = other.sensitive()
         if isinstance(other, dict):
@@ -92,7 +94,7 @@ class HTTPHeaderDict(dict):
         self.__sensitive_map.clear()
         super().clear()
 
-    def copy(self, /) -> typing.Self:
+    def copy(self, /) -> 'HTTPHeaderDict':
         return type(self)(self.sensitive())
 
     @typing.overload
